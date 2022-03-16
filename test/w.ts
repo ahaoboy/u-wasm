@@ -1,4 +1,4 @@
-import { createWASM } from "../src/index";
+import { createWasm } from "../src/index";
 import { useCCall } from "../src/ccall";
 import { useCWrap } from "../src/cwrap";
 import { useFs } from "../src/fs";
@@ -8,7 +8,7 @@ export async function load() {
   const cwrap = useCWrap();
   const ccall = useCCall();
   const fs = useFs();
-  const w = await createWASM(buf);
+  const w = await createWasm(buf);
   const wasm = w.use(cwrap).use(ccall).use(fs);
   console.log(wasm.ccall("add", 1, 1));
   const fib = wasm.cwrap("fib");

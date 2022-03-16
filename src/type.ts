@@ -1,6 +1,6 @@
 export type WasmModule = {
   heap: Uint8Array;
-  // 这里必须使用 O & Ti 这种形式, 否则会导致推断失败
+  // 有点奇怪, 这里必须使用 O & Ti 这种形式, 否则会导致推断失败
   // use: <O, Ti>(this: Ti, plugin: (wasm: Ti) => O) => O;
   use: <O, Ti>(this: Ti, plugin: (wasm: Ti) => O) => O & Ti;
 };
