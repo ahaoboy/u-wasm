@@ -2,11 +2,16 @@ export * from "./ccall";
 export * from "./cwrap";
 import type { WasmModule } from "./type";
 
-function use<I extends WasmModule,O extends WasmModule>(this: I, plugin: (wasm: I) => O) {
+function use<I extends WasmModule, O extends WasmModule>(
+  this: I,
+  plugin: (wasm: I) => O
+) {
   return plugin(this);
 }
 
-export async function createWasm(data: Uint8Array): Promise<WasmModule> {
+export async function createWasm(
+  data: Uint8Array | ArrayBuffer
+): Promise<WasmModule> {
   const instance = ((await WebAssembly.instantiate(data, {})) as any) as any;
   const { exports } = instance.instance;
   return {
