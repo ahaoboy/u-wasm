@@ -1,0 +1,28 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@types/node': ^17.0.21
+  e-emscripten: ^0.1.4
+
+dependencies:
+  e-emscripten: 0.1.4
+
+devDependencies:
+  '@types/node': 17.0.21
+
+packages:
+
+  /@types/emscripten/1.39.6:
+    resolution: {integrity: sha512-H90aoynNhhkQP6DRweEjJp5vfUVdIj7tdPLsu7pq89vODD/lcugKfZOsfgwpvM6XUewEp2N5dCg1Uf3Qe55Dcg==}
+    dev: false
+
+  /@types/node/17.0.21:
+    resolution: {integrity: sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==}
+    dev: true
+
+  /e-emscripten/0.1.4:
+    resolution: {integrity: sha512-qImas1i+joJKkBK6/vF4db1t3L8WOgCbVlw1foOANBzi7oSpEAxLl7vTfyqr+JndiwGyUX0DBN6iSWkiVsoPDA==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@types/emscripten': 1.39.6
+    dev: false

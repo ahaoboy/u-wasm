@@ -1,0 +1,19 @@
+{
+  "name": "u-wasm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esmo ./test/w.ts",
+    "test": "esmo ./test/t.test.ts"
+  },
+  "keywords": [],
+  "author": "阿豪boy",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  },
+  "dependencies": {
+    "e-emscripten": "^0.1.4"
+  }
+}
