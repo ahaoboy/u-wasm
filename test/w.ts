@@ -9,10 +9,10 @@ export async function load() {
   const ccall = useCCall();
   const fs = useFs();
   const w = await createWASM(buf);
-  const wasm1 = w.use(cwrap).use(ccall).use(fs);
-  console.log(wasm1.fs());
-  console.log(wasm1.ccall());
-  console.log(wasm1.cwrap());
-  return wasm1;
+  const wasm = w.use(cwrap).use(ccall).use(fs);
+  console.log(wasm.ccall("add", 1, 1));
+  const fib = wasm.cwrap("fib");
+  console.log(fib(10));
+  return wasm;
 }
 load();

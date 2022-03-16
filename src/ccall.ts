@@ -1,10 +1,9 @@
 import { definePlugin } from "./index";
-import { ccall } from "e-emscripten";
-const _ccall: typeof ccall = (id: string, ...args: any[]) => {
-  return [] as any
-};
+function ccall(this: Record<string, Function>, id: string, ...args: any[]) {
+  return this[id](...args);
+}
 export const useCCall = definePlugin(() => (m): typeof m & {
-  ccall: typeof ccall;
+  ccall: Function;
 } => {
-  return { ...m, ccall: _ccall };
+  return { ...m, ccall };
 });
