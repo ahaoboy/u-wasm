@@ -1,17 +1,11 @@
-# demo
 ```ts
-import { createWasm } from "../src/index";
-import { useCCall } from "../src/ccall";
-import { useCWrap } from "../src/cwrap";
-import { useFs } from "../src/fs";
+import { createWasm,useCCall,useCWrap } from "u-wasm";
 import { readFileSync } from "fs";
-
-const buf = readFileSync("./test/math.wasm");
+const buf = readFileSync("./math.wasm");
 const cwrap = useCWrap();
 const ccall = useCCall();
-const fs = useFs();
 const w = await createWasm(buf);
-const wasm = w.use(cwrap).use(ccall).use(fs);
+const wasm = w.use(cwrap).use(ccall);
 console.log(wasm.ccall("add", 1, 1));
 const fib = wasm.cwrap("fib");
 console.log(fib(10));
